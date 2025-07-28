@@ -1,0 +1,89 @@
+<!--==========================================================
+programmer no1 : sami maali
+time & date : 23 1 2025 4:26 AM 
+project name : (Route)
+===========================================================-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Route</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="Al Al-Bayt University, education, resources, search">
+<!-- Compromise.js -->
+<script src="https://unpkg.com/compromise@13.11.3/builds/compromise.min.js"></script>
+
+<!-- didYouMean -->
+<script src="https://unpkg.com/didyoumean@1.2.2/lib/browser.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/didyoumean"></script>
+
+<!-- connect with neon cloud db and fetching from DB -->
+<script src="https://unpkg.com/compromise"></script>
+
+<!-- loading typo.js which checking user typing for mistakes -->
+	<script src="https://cdn.jsdelivr.net/gh/cfinke/Typo.js/typo/typo.js"></script>
+<!-- loading fuse.js which is brain to bot let it understand user requests -->
+	<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+<!-- Library for Fuzzy Matching -->
+<!-- this for matching inputs with his known words -->
+<script src="https://cdn.jsdelivr.net/npm/didyoumean@1.2.1/didyoumean.min.js"></script>
+
+<!-- i'm using "defer" word cause it Don’t Block Rendering (better performance)-->
+	<script src="Bot.js" defer></script>
+
+	<link  rel="stylesheet" href="style.css">
+	<!-- this is library for a more compatibility -->
+	<!-- becareful this link below make mistakes in style #### TODO remove it to understand it ####-->
+	<!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"-->
+	<!-- font -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">			
+ 	<script>
+	fetch('http://localhost:5501/api/data')
+	.then(res => res.json())
+	.then(data => 
+	{
+		// Display the data as a message in the console
+		console.log('Fetched data:', data);
+
+		// Optionally, loop over the data and display each user in the console
+		data.forEach(user => {
+			console.log(`${user.name} - ${user.email}`);
+		});
+	})
+  .catch(err => console.error('Error:', err));
+ </script>
+</head>
+<body>
+<div id="container">
+	<div id="header-h">
+		<h1 class="h-tags">Welcome to Al Al-Bayt University</h1>
+		<h2 class="h-tags">What are you searching for ?</h2>
+	</div>
+	<div id="Bot-container">
+		<input type="text" placeholder="chat with bot here for any questions" id="UserInput"/>
+		<button onclick="processInput() " id="chat-bot-button" >Chat With Bot</button><!--sendMessage()-->
+		<!-- you have not need it ,so remove it (select statement) .-->
+		<div id="chat-container">
+		</div>
+	</div>
+
+	<div id="footer-guidelines">
+	    <h3>How to Use Website ?</h3>
+	    <ul>
+		<li>
+		<strong>Search or inquiries:</strong><br>
+		 If you have questions or are looking for a specific location, type it in the chat box above to get assistance.
+		</li>
+
+		<li>
+		<strong>Chat with Our Bot:</strong><br>
+		 after typing inside bar click "Chat with Bot" button for answers .
+		</li>
+	    </ul>
+	</div>
+	<div class="Theme_toggle_DIV">
+		<button onclick="theme_toggle()" id="Theme_toggle_button" >Dark</button>
+	</div>
+</div>
+</body>
+</html>

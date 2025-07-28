@@ -1,0 +1,350 @@
+/*====================================================================================================================
+programmer no1 : sami maali 
+time & date : 23 1 2025 4:26 AM 
+project name : (Container,Secrets,Tags)
+project idea :
+	This website for collecting every things you like which is similar to 
+	wish list or interests notebook like google keep,ever note websites..
+	
+	here user don't have account registeration this website generate number which is uniqe for user
+	and each user enter it when want to access his/her tags or notes 
+	
+	after accessing he/she can save any video posts liked or looking to rewatch it again in the future
+		 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+		 ideas ::	- add animmation.
+		 		- make it more interation.
+		 		- try using media query for 
+		 			different screen sizes.
+ 		 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+		 style.css
+====================================================================================================================*/
+:root {
+  --background-color	: #bfbfbf;
+  --text-color		: white;
+  --header-color	: black;
+  --element-BG-color	: #494949;
+  --box-shadow-color	: #494949;
+  --border-color	: black;
+}
+
+/* Dark theme variables */
+[data-theme="dark"] {
+  --background-color	: #2d3033;
+  --text-color		: white;
+  --header-color	: white;
+  --element-BG-color	: #60625b;
+  --box-shadow-color	: #bfbfbf;
+  --border-color	: white;
+}
+
+*	{
+		box-sizing	: 	border-box;
+		padding		:	0%;
+		margin		:	0%;
+		border		:	none;
+		transition 	: 	all 1s ease-in;
+	}
+
+body	{
+		background	:  var(--background-color);
+		color		:  var(--text-color);
+	}
+
+button	{
+		border			: none;
+		background-color	: transparent;
+	}
+
+.h-tags	{
+		font-size	: 3rem;/* rem */
+		font-family	: 'Brush Script MT',cursive,sans-serif;
+		color		: var(--header-color);
+	}
+
+.bot-message	{
+			text-align	: left;
+		}
+
+.user-message	{
+			text-align	: right;
+		}
+
+.user-message,.bot-message	{
+					width			: auto;
+					height			: auto;
+					padding			: 1%;
+					margin			: 0%;
+					border			: none;
+					border-radius		: 10px;
+					font-weight		: bold;
+					font-style		: italic;
+				}
+
+.Theme_toggle_DIV	{
+				width			: 6vw;/*5%*/
+				height			: 6vh;/*8%*/
+				position		: absolute;
+				right			: 1.5vw;
+				top			: 1.5vh;
+			}
+
+.Theme_toggle_DIV #Theme_toggle_button  {
+					width			: 100%;
+					height			: 100%;
+					padding			: 0%;
+					margin			: 0px;
+					background-color	: var(--element-BG-color);
+					border-radius		: 20px;
+					color	: var(--text-color);
+					cursor	: pointer;
+					transition : all 1s ease-in-out;
+					}
+
+.Theme_toggle_DIV #Theme_toggle_button:hover  	{
+						color	: var(--text-color);
+						background-color : black;
+						}
+
+#container	{
+			width		: 100vw;/*this for width as "vw"*/
+			height		: 100vh;/*this for height as "vh"*/
+		}
+
+#container #header-h	{
+				width		: 100%;
+				height		: 20%;
+				display		: block;
+				text-align	: center;
+			}
+
+#container #header-h h1	,#container #header-h h2	{
+								display		: grid;
+								justify-content	: center;
+								align-items	: center;
+								height		: 50%;
+								line-height	: 100%;
+								width		: 100%;
+								padding		: 0%;
+							}
+
+#container #Bot-container	{
+						display			: block;
+						text-align		: center;
+						width			: 100%;
+						height			: 50%;
+						padding			: 1%;
+						margin			: 0%;
+				}
+
+#container #Bot-container #chat-bot-button	{
+							background-color		: var(--element-BG-color);
+							padding				: 1%;
+							margin				: 0% auto;
+							width				: auto;
+							height				: 20%;
+							border-radius			: 10px;
+							font-weight			: bold;
+							font-size			: 80%;
+							transition			: all 1s ease-in-out;
+							color				: white;
+						}
+
+#container #Bot-container #chat-bot-button:hover	{
+							background-color	: black;
+							color			: white;
+							cursor			: pointer;
+						}
+
+#container #Bot-container #UserInput	{
+						width			: 45%;
+						height			: 20%;
+						display			: inline-block;
+						padding			: 1%;
+						margin			: 0% auto;
+						border-radius		: 10px;
+						background-color	: var(--element-BG-color);
+						color			: white;
+						font-size		: 80%;
+						font-weight		: bold;
+					}
+
+#container #Bot-container #UserInput:focus	{
+							border	: none;
+							outline	: none;
+						}
+
+#container #Bot-container #chat-container	{
+							display			: none;
+							border			: none;
+							padding			: 1%;
+							font-size		: 80%;
+							width			: 65%;
+							height			: auto;
+							max-height		: 60%;
+							margin			: 4%  auto 0% auto;
+							border-radius		: 20px;
+							background-color	: var(--element-BG-color);
+							overflow		: auto;
+							box-shadow		: 0px 0px 10px 3px #545755;
+							border			: 1px solid orange;
+							}
+
+#footer-guidelines	{
+				display			: block;/*flex*/
+				width			: 90%;
+				height			: 20%;
+				margin			: 3% auto;
+				padding			: 0.5% 3% 0.5% 3%;
+				border-radius		: 20px;
+				box-shadow		: 0px 0px 10px 3px #494949;
+				background-color	: var(--element-BG-color);
+				border				: 1px solid orange;
+			}
+
+#footer-guidelines ul li	{
+					list-style-type : none;
+				}
+/* =========================
+	responsive design
+  ==========================*/
+/* ############## MEDIA QUERY FOR SMALL SCREENS ############## */
+@media (max-width: 900px) {
+  #Bot-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #UserInput, 
+  #chat-bot-button {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  #chat-bot-button {
+    margin-top: 10px;
+  }
+
+  #footer-guidelines ul {
+    padding-left: 15px;
+  }
+
+  #footer-guidelines ul li {
+    font-size : 14px;
+  }
+
+  .h-tags {
+    font-size: 2rem;
+  }
+
+  #Theme_toggle_button {
+    width: 100%;
+  }
+}/*# MEDIA QUERY # max-width: 900px*/
+
+/* Extra Small Devices (e.g., very small phones) */
+@media (max-width: 575px) {
+  body {
+    padding: 10px;
+  }
+
+  #header-h {
+    padding: 10px 0;
+  }
+
+  .h-tags {
+    font-size: 5vw;
+    line-height: 1.3;
+  }
+
+  #UserInput {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  #chat-bot-button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  #chat-container {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  #footer-guidelines {
+    padding: 15px;
+  }
+
+  #footer-guidelines h3 {
+      font-size: clamp(10px, 5vw, 12px);/*recommended*/
+  }
+
+  #footer-guidelines ul {
+      font-size: clamp(5px, 3vw, 10px);/*recommended*/
+  }
+
+  #footer-guidelines ul li {
+    font-size : 12px;
+  }
+
+  #Theme_toggle_button {
+    font-size: 10px;
+    padding: 1vw 3vw;
+  }
+}/*# MEDIA QUERY # max-width: 575px*/
+
+/* Extra Extra Small Devices */
+@media (max-width: 375px) {
+
+  .h-tags {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  #UserInput {
+    width: 100%;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  #chat-bot-button {
+    font-size: 14px;
+    padding: 8px 12px;
+    width: 100%;
+  }
+
+  #chat-container {
+    max-height: 200px;
+    overflow-y: auto;
+    font-size: 14px;
+  }
+
+  #footer-guidelines {
+    width: 80vw;
+    height: 25vh;
+  }
+  
+  #footer-guidelines h3 {
+    font-size: 12px;
+  }
+
+  #footer-guidelines li {
+    font-size: clamp(5px, 1vw, 12px);
+    line-height: 1;
+  }
+
+  .Theme_toggle_DIV {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  #Theme_toggle_button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  #container {
+    padding: 15px;
+  }
+}/* MEDIA QUERY # max-width: 375px */
+/*problem with footer when screen size getting 261*/
